@@ -1,6 +1,6 @@
 {
   "minecraft:entity": {
-    "version": 1,
+    "format_version": "1.2.0",
 
     "component_groups": {
       "minecraft:hard_arrow": {
@@ -13,6 +13,7 @@
               "destroyonhit": true
             },
             "stick_in_ground": {
+              "shake_time" : 0.35
             },
             "arrow_effect": {
             }
@@ -38,15 +39,16 @@
               "destroyonhit": true
             },
             "stick_in_ground": {
+              "shake_time" : 0.35
             },
             "arrow_effect": {
             }
           },
           "hitSound": "bow.hit",
-          "power": 1.6,
+          "power": 5.0,
           "gravity": 0.05,
-          "uncertaintyBase": 16,
-          "uncertaintyMultiplier": 4,
+          "uncertaintyBase": 1,
+          "uncertaintyMultiplier": 0,
           "anchor": 1,
           "shouldbounce": true,
           "offset": [ 0, -0.1, 0 ]
@@ -56,11 +58,11 @@
 
     "components": {
       "minecraft:identifier": {
-        "id": "minecraft:arrow.skeleton"
+        "id": "minecraft:arrow"
       },
       "minecraft:collision_box": {
-        "width": 0.5,
-        "height": 0.5
+        "width": 0.25,
+        "height": 0.25
       },
       "minecraft:projectile": {
         "onHit": {
@@ -71,6 +73,7 @@
             "destroyonhit": true
           },
           "stick_in_ground": {
+            "shake_time" : 0.35
           },
           "arrow_effect": {
           }
@@ -83,6 +86,8 @@
         "anchor": 1,
         "shouldbounce": true,
         "offset": [ 0, -0.1, 0 ]
+      },
+	  "minecraft:physics": {
       }
     },
 
@@ -90,17 +95,13 @@
       "minecraft:entity_spawned": {
         "sequence": [
           {
-            "filters": {
-              "is_world_difficulty": "hard"
-            },
+            "filters": {"test": "is_difficulty", "value": "hard"},
             "add": {
               "component_groups": [ "minecraft:hard_arrow" ]
             }
           },
           {
-            "filters": {
-              "other_with_families": "player"
-            },
+            "filters": {"test": "is_family", "subject": "other", "value": "player"},
             "add": {
               "component_groups" : [ "minecraft:player_arrow" ]
             }

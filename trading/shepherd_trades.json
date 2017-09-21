@@ -5,7 +5,7 @@
         {
           "wants": [
             {
-              "item": "minecraft:wool:0",
+              "item": "minecraft:wool",
               "quantity": {
                 "min": 16,
                 "max": 22

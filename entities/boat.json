@@ -1,6 +1,6 @@
 {
   "minecraft:entity": {
-    "format_version": 0.1,
+    "format_version": "1.2.0",
 
     "component_groups": {
     },
@@ -19,6 +19,8 @@
       "minecraft:rideable": {
         "seat_count": 2,
         "interact_text": "action.interact.ride.boat",
+		"pull_in_entities": true,
+	
         "seats": [
           {
             "position": [0.0, -0.2, 0.0],
@@ -46,7 +48,8 @@
         ]
       },
       "minecraft:is_stackable": {
-        "value": true
+      },
+	  "minecraft:physics": {
       }      
     },
 

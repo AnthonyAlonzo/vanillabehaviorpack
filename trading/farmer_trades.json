@@ -139,7 +139,10 @@
           "gives": [
             {
               "item": "minecraft:apple",
-              "quantity": 5
+              "quantity": {
+                "min": 5,
+                "max": 7
+              }
             }
           ]
         }
